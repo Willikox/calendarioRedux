@@ -1,5 +1,10 @@
 import { combineReducers} from 'redux';
+import remindersReducer from './reminders';
+import editReminderReducer from './editReminder';
 
-const reducers = {};
+const rootReducer = combineReducers( {
+   reminders: remindersReducer,
+   editReminder: editReminderReducer
+});
 
-export default combineReducers(reducers);
+export default rootReducer;

@@ -11,9 +11,11 @@ import reportWebVitals from "./reportWebVitals";
 // import main sass file
 import "./sass/app.scss";
 
+const store = getStore();
+
 ReactDOM.render(
   <React.StrictMode>
-    <ReduxProvider store={getStore(reducers)}>
+    <ReduxProvider store={store}>
 	    <BrowserRouter>
 	      <Main />
 	    </BrowserRouter>
