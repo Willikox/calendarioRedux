@@ -74,7 +74,8 @@ The way to control more reminders is by clicking the '+3 more' button since I ha
 
 In a modal, we can see all the reminders, and when hovering over them, they are selected thanks to the cursor pointer, and the color changes to select which one we want to modify. We select it, and the modal closes, retrieving the data so we can modify it. If we do not want to modify anything, clicking outside the modal will close it.
 
-`const remindersReducer = (state = [], action) => {
+```javascript
+const remindersReducer = (state = [], action) => {
     switch (action.type){
         case 'ADD_REMINDER':
             return [...state, action.payload];
@@ -85,9 +86,11 @@ In a modal, we can see all the reminders, and when hovering over them, they are 
     }
 };
 
-export default remindersReducer;`
+export default remindersReducer;
+```
 
-`const remindersReducer = (state = [], action) => {
+```javascript
+const remindersReducer = (state = [], action) => {
     switch (action.type){
         case 'ADD_REMINDER':
             return [...state, action.payload];
@@ -98,9 +101,11 @@ export default remindersReducer;`
     }
 };
 
-export default remindersReducer;`
+export default remindersReducer;
+```
 
-`const handleAddReminder = async (e) =>{
+```javascript
+const handleAddReminder = async (e) =>{
     e.preventDefault();
     const formData = new FormData(e.target);
     const newReminder = {
@@ -120,20 +125,25 @@ export default remindersReducer;`
     };
     e.target.reset();
   };
-`
+```
+
 There are some details such as the colors used for the text color, background, etc., which do not allow defining unique styles for this practice. The main focus was the implementation of Redux in the code, which allows us to better synthesize the code when making requests and not have to go through all the code, ideal for large projects. What I did was focus on best practices and divide into parts like editing and data entry. For example, we can see that for an edit, 'editReminder' was used, it will be updated to 'updateReminder', and for an entry, 'addReminder' was used.
 
 # VisualCrossing
 
-`const fetchWeather = async () => {
+```javascript
+const fetchWeather = async () => {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Ecuador?unitGroup=metric&key=5LQWAFGK7VFALAM3SWURFYY8L&contentType=json`);
     const data = await response.json();
     return data.days[0].description;
   }
-`
-`onst weather = await fetchWeather(newReminder.city, newReminder.date);
+```
+
+```javascript
+const weather = await fetchWeather(newReminder.city, newReminder.date);
     newReminder.weather = weather;
-`
+```
+
 The API used is VisualCrossing. By following the steps for API incorporation, we were able to use an address from Ecuador for this example with its included key. A unique key allows us to obtain weather data. In part of the previous code, we can see that through await, we make a request to wait for weather data, which we merge with newReminders.city obtained from fetchWeather.
 Feel free to ask if you have any questions about the code. It was submitted as a Fork to the repository, creating a branch, as I did not have access. I appreciate the opportunity and believe it meets the requested criteria, including the Bonuses. Thank you :)
 
